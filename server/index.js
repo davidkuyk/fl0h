@@ -12,7 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 const uri = process.env.ATLAS_URI;
@@ -25,11 +24,6 @@ connection.once('open', () => {
 
 const tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);
-
-// All remaining requests return the React app, so it can handle routing.
-//app.get('*', function(request, response) {
-  //response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
-//});
 
 app.listen(PORT, function () {
   console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);

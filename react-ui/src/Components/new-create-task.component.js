@@ -79,7 +79,7 @@ export default class CreateTask extends Component {
             {/* Distance */}
             <div className='form-group'>
               <div>
-                {this.state.distance}
+                {this.state.distance ? this.state.distance : "?"}
               </div>
             </div>
             {/* Date */}

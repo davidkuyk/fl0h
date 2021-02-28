@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import CreateTask from './new-create-task.component';
+//import CreateTask from './new-create-task.component';
 let dash = require('lodash');
 
 const Task = props => (
@@ -54,7 +54,6 @@ export default class TasksList extends Component {
     render() {
         return (
           <div className='tableWrapper'>
-            <CreateTask />
             <table className='table'>
               <thead className='thead-dark'>
                 <tr> 

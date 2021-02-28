@@ -65,7 +65,7 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-          <div class="newTaskWrapper">
+          <div>
           <form class="newTask" onSubmit={this.onSubmit}>
             <table>
               <tbody>

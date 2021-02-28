@@ -8,9 +8,9 @@ export default class Navbar extends Component {
                 <Link to='/' className='navbar-brand'>fl0h</Link>
                 <div className='collapse navbar-collapse'>
                     <ul className='navbar-nav mr-auto'>
-                        <li className='navbar-item'>
-                            <Link to='/create' className='nav-link'>Add Task</Link>
-                        </li>
+                        {/*<li className='navbar-item'>*/}
+                             {/*<Link to='/create' className='nav-link'>Add Task</Link>*/}
+                         {/*</li>*/}
                     </ul>
                 </div>
             </nav>

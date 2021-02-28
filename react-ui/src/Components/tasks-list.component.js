@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import CreateTask from './Components/new-create-task.component';
 let dash = require('lodash');
 
 const Task = props => (
@@ -65,6 +66,7 @@ export default class TasksList extends Component {
                 </tr>
               </thead>
               <tbody>
+                <CreateTask />
                 { this.taskList().sort((a,b) => b.date - a.date) }
               </tbody>
             </table>

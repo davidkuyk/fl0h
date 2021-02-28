@@ -65,8 +65,6 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-      <table className='table'>
-        <tbody>
           <tr>
           <form onSubmit={this.onSubmit}>
             {/* Description */}
@@ -108,9 +106,6 @@ export default class CreateTask extends Component {
             </td>
           </form>
         </tr>
-        </tbody>
-      </table>
-      
     )
   }
 }

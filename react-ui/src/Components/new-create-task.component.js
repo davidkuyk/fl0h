@@ -68,6 +68,7 @@ export default class CreateTask extends Component {
           <div class="newTaskWrapper">
           <form class="newTask" onSubmit={this.onSubmit}>
             <table>
+              <tbody>
               <tr>
                 <td>
             {/* Description */}
@@ -117,6 +118,7 @@ export default class CreateTask extends Component {
             </div>
             </td>
             </tr>
+            </tbody>
             </table>
           </form>
         </div>

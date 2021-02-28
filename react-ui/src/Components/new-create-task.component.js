@@ -65,47 +65,47 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-          <tr>
+          <div class="newTask">
           <form onSubmit={this.onSubmit}>
             {/* Description */}
-            <td className='form-group'>
+            <div className='form-group'>
               <input type='text'
                 required
                 className='form-control'
                 value={this.state.description}
                 onChange={this.onChangeDescription}
                 />
-            </td>
+            </div>
             {/* Distance */}
-            <td className='form-group'>
+            <div className='form-group'>
               <div>
                 {this.state.distance}
               </div>
-            </td>
+            </div>
             {/* Date */}
-            <td className='form-group'>
+            <div className='form-group'>
               <div>
                 <DatePicker
                   selected={this.state.date}
                   onChange={this.onChangeDate}
                   />
               </div>
-            </td>
+            </div>
             {/* Category */}
-            <td className='form-group'>
+            <div className='form-group'>
               <input type='text'
                 required
                 className='form-control'
                 value={this.state.category}
                 onChange={this.onChangeCategory}
                 />
-            </td>
+            </div>
             {/* Actions */}
-            <td className='form-group'>
+            <div className='form-group'>
               <input type='submit' value='Create Task' className='btn btn-primary' />
-            </td>
+            </div>
           </form>
-        </tr>
+        </div>
     )
   }
 }

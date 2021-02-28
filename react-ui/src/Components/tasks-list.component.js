@@ -54,6 +54,7 @@ export default class TasksList extends Component {
     render() {
         return (
           <div className='tableWrapper'>
+            <CreateTask />
             <table className='table'>
               <thead className='thead-dark'>
                 <tr> 
@@ -65,7 +66,6 @@ export default class TasksList extends Component {
                 </tr>
               </thead>
               <tbody>
-                <CreateTask />
                 { this.taskList().sort((a,b) => b.date - a.date) }
               </tbody>
             </table>

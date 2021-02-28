@@ -123,3 +123,16 @@ td, th {
     line-height: 1rem;
   } 
 }
+
+.form-group {
+
+}
+
+.newTask {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: #e8e8e8;
+}

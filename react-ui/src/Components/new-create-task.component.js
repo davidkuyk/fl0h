@@ -67,6 +67,9 @@ export default class CreateTask extends Component {
     return (
           <div class="newTaskWrapper">
           <form class="newTask" onSubmit={this.onSubmit}>
+            <table>
+              <tr>
+                <td>
             {/* Description */}
             <div className='form-group'>
               <input type='text'
@@ -76,12 +79,16 @@ export default class CreateTask extends Component {
                 onChange={this.onChangeDescription}
                 />
             </div>
+            </td>
+            <td>
             {/* Distance */}
             <div className='form-group'>
               <div>
                 {this.state.distance ? this.state.distance : "?"}
               </div>
             </div>
+            </td>
+            <td>
             {/* Date */}
             <div className='form-group'>
               <div>
@@ -91,6 +98,8 @@ export default class CreateTask extends Component {
                   />
               </div>
             </div>
+            </td>
+            <td>
             {/* Category */}
             <div className='form-group'>
               <input type='text'
@@ -100,10 +109,15 @@ export default class CreateTask extends Component {
                 onChange={this.onChangeCategory}
                 />
             </div>
+            </td>
+            <td>
             {/* Actions */}
             <div className='form-group'>
               <input type='submit' value='Create Task' className='btn btn-primary' />
             </div>
+            </td>
+            </tr>
+            </table>
           </form>
         </div>
     )

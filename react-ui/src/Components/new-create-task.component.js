@@ -65,8 +65,8 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-          <div class="newTask">
-          <form onSubmit={this.onSubmit}>
+          <div class="newTaskWrapper">
+          <form class="newTask" onSubmit={this.onSubmit}>
             {/* Description */}
             <div className='form-group'>
               <input type='text'

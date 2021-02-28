@@ -16,7 +16,7 @@ function App() {
         <Router>
           <div className='container'>
             <Navbar />
-            <Route path='/create' exact component={CreateTask} />
+            <CreateTask />
             <Route path='/' exact component={TasksList} />
             <Route path='/edit/:id' component={EditTask} />
             </div>

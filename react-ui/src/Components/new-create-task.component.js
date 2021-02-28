@@ -65,47 +65,52 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-      <tr>
-        <form onSubmit={this.onSubmit}>
-          {/* Description */}
-          <td className='form-group'>
-            <input type='text'
-              required
-              className='form-control'
-              value={this.state.description}
-              onChange={this.onChangeDescription}
-              />
-          </td>
-          {/* Distance */}
-          <td className='form-group'>
-            <div>
-              {this.state.distance}
-            </div>
-          </td>
-          {/* Date */}
-          <td className='form-group'>
-            <div>
-              <DatePicker
-                selected={this.state.date}
-                onChange={this.onChangeDate}
+      <table className='table'>
+        <tbody>
+          <tr>
+          <form onSubmit={this.onSubmit}>
+            {/* Description */}
+            <td className='form-group'>
+              <input type='text'
+                required
+                className='form-control'
+                value={this.state.description}
+                onChange={this.onChangeDescription}
                 />
-            </div>
-          </td>
-          {/* Category */}
-          <td className='form-group'>
-            <input type='text'
-              required
-              className='form-control'
-              value={this.state.category}
-              onChange={this.onChangeCategory}
-              />
-          </td>
-          {/* Actions */}
-          <td className='form-group'>
-            <input type='submit' value='Create Task' className='btn btn-primary' />
-          </td>
-        </form>
-      </tr>
+            </td>
+            {/* Distance */}
+            <td className='form-group'>
+              <div>
+                {this.state.distance}
+              </div>
+            </td>
+            {/* Date */}
+            <td className='form-group'>
+              <div>
+                <DatePicker
+                  selected={this.state.date}
+                  onChange={this.onChangeDate}
+                  />
+              </div>
+            </td>
+            {/* Category */}
+            <td className='form-group'>
+              <input type='text'
+                required
+                className='form-control'
+                value={this.state.category}
+                onChange={this.onChangeCategory}
+                />
+            </td>
+            {/* Actions */}
+            <td className='form-group'>
+              <input type='submit' value='Create Task' className='btn btn-primary' />
+            </td>
+          </form>
+        </tr>
+        </tbody>
+      </table>
+      
     )
   }
 }

@@ -82,7 +82,7 @@ export default class CreateTask extends Component {
             <td>
             {/* Distance */}
               <div className='form-control'>
-                {this.state.distance ? this.state.distance : "?"}
+                {this.state.distance ? this.state.distance : "today"}
               </div>
             </td>
             <td>

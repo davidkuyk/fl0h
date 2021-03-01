@@ -105,7 +105,7 @@ export default class CreateTask extends Component {
             </td>
             <td>
             {/* Actions */}
-              <input type='submit' value='Create Task' className='btn btn-primary' />
+              <input type='submit' value='add' className='btn btn-primary' />
             </td>
             </tr>
             </tbody>

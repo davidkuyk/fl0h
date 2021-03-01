@@ -11,7 +11,7 @@ const Task = props => (
     <td>{props.task.date.substring(0,10)}</td>
     <td>{props.task.category}</td>
     <td>
-      <Link to={`/edit/`+props.task._id}>edit</Link> | <button onClick={() => { props.deleteTask(props.task._id)}}>delete</button>
+      <Link to={`/edit/`+props.task._id}>edit</Link> <button onClick={() => { props.deleteTask(props.task._id)}}>delete</button>
     </td>
   </tr>
 )

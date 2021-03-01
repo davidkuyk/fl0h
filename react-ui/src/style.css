@@ -27,7 +27,7 @@ a {
   margin: 0 auto;
   width: 100%;
   display: block;
-  background-color: #2f3029;
+  background-color: #0a1f27;
   min-height: 100vh;
 }
 
@@ -80,7 +80,7 @@ a {
 }
 
 .navbar-brand {
-  color: #d0d0d0;
+  color: #c3d5dc;
   text-decoration: none;
   font-size: 40px;
   display: inline-block;
@@ -107,15 +107,31 @@ td {
   width: 20%;
 }
 
+td > a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid rgb(118, 118, 118);
+  background-color: #8cb5c5;
+  padding: 2px 12px;
+  border-radius: 3px;
+  font-size: calc(10px + 1vmin);
+  font-family: Arial;
+}
+
+button {
+  background-color: #8cb5c5;
+  cursor: pointer;
+  font-size: calc(10px + 1vmin);
+}
+
 th { 
-  background: #030303; 
-  color: white; 
-  font-weight: bold; 
+  background: #030a0c; 
+  font-weight: bold;
 }
 td, th { 
   line-height: 1.5rem;
   vertical-align: middle; 
-  border: 1px solid #4a4a4a; 
+  border: 1px solid #2d424a; 
   text-align: left; 
 }
 
@@ -147,4 +163,7 @@ input[type="text" i] {
     cursor: pointer;
     box-sizing: border-box;
     width: 100%;
+    font-size: calc(10px + 1vmin);
+    min-height: 35px;
+    background-color: #d0dee4;
 }

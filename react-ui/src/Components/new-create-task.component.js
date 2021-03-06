@@ -92,8 +92,8 @@ export default class CreateTask extends Component {
               <div>
                 <DatePicker
                   selected={this.state.date}
-                  onSelect={this.onChangeDate}
-                  onChange={this.onChangeDate}
+                  onSelect={date => this.onChangeDate(date)}
+                  onChange={date => this.onChangeDate(date)}
                   />
               </div>
             </td>

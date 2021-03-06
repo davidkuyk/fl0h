@@ -1,4 +1,5 @@
 const express = require('express');
+var bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+//app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });

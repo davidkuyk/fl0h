@@ -26,14 +26,15 @@ export default class CreateTask extends Component {
       });
     };
 
-    onChangeDate(date) {
-      const dt2 = new Date(date);
+    onChangeDate(e) {
+      const dt2 = new Date(e.target.selected);
       const dt1 = new Date();
       let currdistance = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
       if (currdistance > 0) { currdistance = Math.ceil(currdistance) + ' days until'}
       else if (currdistance < 0) { currdistance = Math.ceil(Math.abs(currdistance)) + ' days ago'}
       else { currdistance = 'today'}
       this.setState({
+        date: e.target.selected,
         distance: currdistance
       });
     };

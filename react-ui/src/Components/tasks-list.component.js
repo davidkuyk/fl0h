@@ -44,10 +44,14 @@ export default class TasksList extends Component {
 
     taskList() {     
       return this.state.tasks.map(currenttask => {
-            let distance = Number((new Date(currenttask.date).getTime() - (new Date()).getTime()) / (1000 * 3600 * 24));
+            const dt1 = new Date(currenttask.date);
+            const dt2 = new Date();
+            const distance = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
             if (distance > 1) { distance = Math.ceil(distance) + ' days until'}
             else if (distance < -1) { distance = Math.ceil(Math.abs(distance)) + ' days ago'}
-            else { distance = 'today'}
+            else { 
+                distance = 'today'
+              }
             return <Task task={currenttask} deleteTask={this.deleteTask} key={currenttask._id} distance={distance}/>;
           })
     }

@@ -44,8 +44,8 @@ export default class TasksList extends Component {
     taskList() {     
       return this.state.tasks.map(currenttask => {
             let thisDistance
-            const dt1 = new Date(currenttask.date);
-            const dt2 = new Date();
+            const dt2 = new Date(currenttask.date);
+            const dt1 = new Date();
             let distance = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
             if (distance > 1) { thisDistance = Math.ceil(distance) + ' days until'}
             else if (distance < -1) { thisDistance = Math.ceil(Math.abs(distance)) + ' days ago'}

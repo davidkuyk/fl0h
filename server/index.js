@@ -13,8 +13,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
-//app.use(express.static(path.resolve(__dirname, '../react-ui/public')));
+const tasksRouter = require('./routes/tasks');
+app.use('/tasks', tasksRouter);
+
+// PRODUCTION
+//app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+
+// TESTING
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static("public"));
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+});
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
@@ -24,8 +34,9 @@ connection.once('open', () => {
     console.log('MongoDB database connection established.');
 })
 
-const tasksRouter = require('./routes/tasks');
-app.use('/tasks', tasksRouter);
+// app.get("/", (req, res) => {
+//  res.sendFile(path.join(__dirname, "react-ui/public", "index.html"));
+// });
 
 app.listen(PORT, function () {
   console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);

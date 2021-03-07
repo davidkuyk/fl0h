@@ -7,9 +7,9 @@
     "npm": "7.6.0"
   },
   "scripts": {
-    "test": "react-scripts start",
-    "start": "node server",
-    "build": "cd react-ui/ && npm install && npm run build"
+    "start-client": "react-scripts start",
+    "build": "react-scripts build",
+    "start": "npm run build && (cd server && npm start)"
   },
   "cacheDirectories": [
     "node_modules",
@@ -25,7 +25,9 @@
     "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-datepicker": "^3.6.0",
-    "react-router-dom": "^5.2.0"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3"
   },
   "repository": {
     "type": "git",
@@ -37,5 +39,17 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

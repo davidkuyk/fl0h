@@ -31,11 +31,11 @@ As of now, fl0h is a one-page todo app built with the MERN stack. You can add, e
 
 ## Installation
 
-Open your terminal and type:
+[Click here](http://fl0h.herokuapp.com/) to go to the site. Or, if you want to clone this repository, open your terminal and type:
 
 ```sh
-$ git clone https://github.com/davidkuyk/readme-boilerplate.git
-$ cd readme-boilerplate
+$ git clone https://github.com/davidkuyk/fl0h.git
+$ cd fl0h
 ```
 
 ## Scaffolding

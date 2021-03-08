@@ -37,6 +37,8 @@ router.route('/:id').delete((req, res) => {
 });
 
 router.route('/update/:id').post((req, res) => {
+    console.log(req.params.id)
+    console.log(req.body)
     Task.findById(req.params.id)
         .then(task => {
             task.description = req.body.description;

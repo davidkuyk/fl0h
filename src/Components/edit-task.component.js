@@ -7,8 +7,8 @@ let dash = require('lodash');
 const EditTask = props => {
 
   const [description, setDescription] = useState(props.task.description);
-  const [date, setDate] = useState(new Date());
-  const [category, setCategory] = useState('None');
+  const [date, setDate] = useState(new Date(new Date((props.task.date)).toDateString()));
+  const [category, setCategory] = useState(props.task.category);
   const [distance, setDistance] = useState('today');
   
   
@@ -71,7 +71,7 @@ const EditTask = props => {
         {/* Distance */}
         <td>
           <div className='form-control'>
-            {distance ? distance : "today"}
+            {props.distance ? props.distance : "today"}
           </div>
         </td>
         {/* Date */}

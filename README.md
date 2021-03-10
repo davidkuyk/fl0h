@@ -26,7 +26,7 @@ As of now, fl0h is a one-page todo app built with the MERN stack. You can add, e
 
 * Add user login functionality
 * Add "deadline" column
-* Add "recurring" column
+* Add "recurring" column, then a loop button that, when clicked, automatically moves the task ahead in the list by the number of days (from today) in the recurring column
 * Email reminders
 
 ## Installation

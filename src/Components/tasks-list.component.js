@@ -3,9 +3,11 @@ import axios from 'axios';
 let dash = require('lodash');
 import Task from './task.component.js';
 import EditTask from './edit-task.component.js';
+import Loading from './loading.js'
 
 const TasksList = () => {
   const [tasks, setTasks] = useState({tasks: []});
+  const [loading, setLoading] = useState(true);
 
     const [inEditMode, setInEditMode] = useState({
       status: true,
@@ -54,8 +56,9 @@ const TasksList = () => {
     useEffect(() => {
       axios.get('/tasks/')
         .then(response => {
-          const orderedTasks = dash.orderBy(response.data, ['date'], 'asc')
-          setTasks({tasks: orderedTasks})
+          const orderedTasks = dash.orderBy(response.data, ['date'], 'asc');
+          setTasks({tasks: orderedTasks});
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
@@ -64,22 +67,26 @@ const TasksList = () => {
 
         return (
           <div className='tableWrapper'>
-          <form class="newTask">
-            <table className='table'>
-              <thead className='thead-dark'>
-                <tr> 
-                  <th>Description</th>
-                  <th>Distance</th>
-                  <th>Date</th>
-                  <th>Category</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                { theList() }
-              </tbody>
-            </table>
-            </form>
+            {loading ? (
+              <Loading />
+            ) : (
+              <form class="newTask">
+                <table className='table'>
+                  <thead className='thead-dark'>
+                    <tr> 
+                      <th>Description</th>
+                      <th>Distance</th>
+                      <th>Date</th>
+                      <th>Category</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    { theList() }
+                  </tbody>
+                </table>
+              </form>
+            )}
           </div>
         )
 }

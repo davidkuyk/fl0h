@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/github/license/davidkuyk/fl0h.svg)](https://github.com/davidkuyk/fl0h/blob/main/LICENSE)
 
 A minimalistic todo app.
+
 ## Table of Contents
 
 - [fl0h](#fl0h)
@@ -24,10 +25,10 @@ As of now, fl0h is a one-page todo app built with the MERN stack. You can add, e
 
 ## Future Feature Ideas
 
-* Add user login functionality
-* Add "deadline" column
-* Add "recurring" column, then a loop button that, when clicked, automatically moves the task ahead in the list by the number of days (from today) in the recurring column
-* Email reminders
+- Add user login functionality
+- Add "deadline" column
+- Add "recurring" column, then a loop button that, when clicked, automatically moves the task ahead in the list by the number of days (from today) in the recurring column
+- Email reminders
 
 ## Installation
 
@@ -53,13 +54,14 @@ fl0h
 ├── LICENSE
 └── README.md
 ```
+
 ## Bugs
 
 If you have questions, feature requests or a bug you want to report, please click [here](https://github.com/davidkuyk/fl0h/issues) to open an issue.
 
 ## Author
 
-* [**David Kuyk**](https://davidkuyk.github.io/)
+- [**David Kuyk**](https://davidkuyk.github.io/)
 
 ## License
 

@@ -16,6 +16,9 @@ app.use(express.json());
 const tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);
 
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
 // PRODUCTION
 //app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
@@ -33,10 +36,6 @@ connection.on('error', console.error.bind(console, 'connection error:'));
 connection.once('open', () => {
     console.log('MongoDB database connection established.');
 })
-
-// app.get("/", (req, res) => {
-//  res.sendFile(path.join(__dirname, "react-ui/public", "index.html"));
-// });
 
 app.listen(PORT, function () {
   console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);

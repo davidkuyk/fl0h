@@ -8,7 +8,6 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    console.log('req.body ', req.body.date)
     const description = req.body.description;
     const date = Date.parse(req.body.date);
     const category = req.body.category;

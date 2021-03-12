@@ -35,8 +35,8 @@ As of now, fl0h is a one-page todo app built with the MERN stack. You can add, e
 [Click here](http://fl0h.herokuapp.com/) to go to the site. Or, if you want to clone this repository, open your terminal and type:
 
 ```sh
-$ git clone https://github.com/davidkuyk/fl0h.git
-$ cd fl0h
+git clone https://github.com/davidkuyk/fl0h.git
+cd fl0h
 ```
 
 ## Scaffolding
@@ -44,13 +44,30 @@ $ cd fl0h
 ```text
 fl0h
 ├── public
-│   └── style.css
-├── views
-    └── index.ejs
-├── server.js
+│   └── index.html
+├── server
+|   └── models
+|       └── task.model.js
+|   └── routes
+|       └── tasks.js
+|   └── index.js
+|   └── package.json
+|   └── package-lock.json
+├── src
+|   └── Components
+|       └── edit-task.component.js
+|       └── loading.js
+|       └── navbar.component.js
+|       └── new-create-task.component.js
+|       └── task.component.js
+|       └── tasks-list.component.js
+|   └── App.js
+|   └── index.js
+|   └── serviceWorker.js
+|   └── style.css
+├── app.json
 ├── package.json
 ├── package-lock.json
-├── Procfile
 ├── LICENSE
 └── README.md
 ```

@@ -44,8 +44,6 @@ const CreateTask = () => {
         category: category
       }
 
-      console.log('task date on submit: ' + task.date)
-
       axios.post('/tasks/add', task)
         .then(res => console.log(res.data))
         .catch(err => {

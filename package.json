@@ -9,7 +9,8 @@
   "scripts": {
     "start-client": "react-scripts start",
     "build": "react-scripts build",
-    "start": "npm run build && (cd server && npm start)"
+    "start": "npm run build && (cd server && npm start)",
+    "dev": "nodemon --watch src && (cd server && npm start)"
   },
   "cacheDirectories": [
     "node_modules",

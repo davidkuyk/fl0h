@@ -6,6 +6,7 @@ import TasksList from './Components/tasks-list.component';
 import Loading from './Components/loading.js'
 import Navbar from './Components/navbar.component';
 import EditTask from './Components/edit-task.component';
+import Login from './Components/login.js'
 import CreateTask from './Components/new-create-task.component';
 let dash = require('lodash');
 
@@ -42,9 +43,10 @@ function App() {
         <Router>
           <div className='container'>
             <Navbar />
-            <CreateTask />
+            {/* <CreateTask /> */}
             <Route path='/' exact render={() => (<TasksList tasks={tasks} setTasks={setTasks} component={TasksList} />)} />
             <Route path='/edit/:id' component={EditTask} />
+            <Route path='/login' component={Login} />
             </div>
         </Router>
       </header>

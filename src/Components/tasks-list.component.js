@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Task from './task.component.js';
+import CreateTask from './new-create-task.component';
 import EditTask from './edit-task.component.js';
 
 const TasksList = (props) => {
@@ -51,6 +52,7 @@ const TasksList = (props) => {
         
       return (
         <div className='tableWrapper'>
+          {<CreateTask />}
           <form class="newTask">
             <table className='table'>
               <thead className='thead-dark'>

@@ -5,20 +5,43 @@ const Login = () => {
 
   const [usernameReg, setUsernameReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
+  const [usernameLogin, setUsernameLogin] = useState('');
+  const [passwordLogin, setPasswordLogin] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleRegister = (e) => {
+
+    e.preventDefault();
     
     const user = {
         username: usernameReg,
         password: passwordReg
       }
+    
+    axios.post('/users/register', user)
+      .then(res => console.log(res))
+      .catch(err => {
+        console.log(err);
+      });
 
-      axios.post('/users/register', user)
-        .then(res => console.log(res.data))
-        .catch(err => {
-          console.log(err.response.request._response);
-        });
+      // window.location = '/';
+  }
+
+  const handleLogin = (e) => {
+
+    e.preventDefault()
+    
+    const user2 = {
+        username: usernameLogin,
+        password: passwordLogin
+      }
+
+    axios.post('/users/login', user2)
+      .then(res => console.log(res))
+      .catch(err => {
+        console.log(err);
+      });
+
+    
 
       // window.location = '/';
   }
@@ -26,7 +49,7 @@ const Login = () => {
   return (
     <div className='auth'>
       <div className="registration">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleRegister}>
         <h1>Register</h1>
         <div class='formgroup'>
           <label>Username</label>
@@ -34,6 +57,7 @@ const Login = () => {
           type="text"
           id="usernameReg"
           name="usernameReg"
+          autocomplete="username"
           value={usernameReg}
           onChange={(e) => {
             setUsernameReg(e.target.value);
@@ -50,27 +74,39 @@ const Login = () => {
             onChange={(e) => {
             setPasswordReg(e.target.value);
           }}/>
-          <button type='submit' value="Register">Register</button>
+          <button type='submit' value="Register" >Register</button>
         </div>
         </form>
       </div>
       
       <div className="login">
-        <form>
+        <form onSubmit={handleLogin}>
         <h1>Login</h1>
         <div class='formgroup'>
         <label>Username</label>
         <input
           type="text"
+          id="usernameLogin"
+          name="usernameLogin"
+          autocomplete="username"
+          value={usernameLogin}
           onChange={(e) => {
-            setUsernameReg(e.target.value);
+            setUsernameLogin(e.target.value);
           }}
           />
           </div>
           <div class='formgroup'>
           <label>Password</label>
-          <input type="password" autocomplete="current-password" />
-          <button>Login</button>
+          <input 
+            type="password"
+            id="passwordLogin"
+            name="passwordLogin"
+            autocomplete="current-password"
+            onChange={(e) => {
+              setPasswordLogin(e.target.value);
+            }}
+          />
+          <button type='submit' value="Login">Login</button>
           </div>
           </form>
       </div>

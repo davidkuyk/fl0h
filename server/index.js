@@ -19,10 +19,6 @@ app.use('/tasks', tasksRouter);
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
-// PRODUCTION
-//app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
-
-// TESTING
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
 app.use((req, res, next) => {

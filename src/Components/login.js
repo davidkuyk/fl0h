@@ -36,7 +36,7 @@ const Login = () => {
       }
 
     axios.post('/users/login', user2)
-      .then(res => console.log(res))
+      .then(res => console.log(JSON.stringify(res)))
       .catch(err => {
         console.log(err);
       });

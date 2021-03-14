@@ -7,7 +7,6 @@ import Loading from './Components/loading.js'
 import Navbar from './Components/navbar.component';
 import EditTask from './Components/edit-task.component';
 import Login from './Components/login.js'
-import CreateTask from './Components/new-create-task.component';
 let dash = require('lodash');
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
 
   if (loading) {
     return (
-      // <h1>Loading...</h1>
       <Loading />
     );
   } else {
@@ -43,10 +41,9 @@ function App() {
         <Router>
           <div className='container'>
             <Navbar />
-            {/* <CreateTask /> */}
-            <Route path='/' exact render={() => (<TasksList tasks={tasks} setTasks={setTasks} component={TasksList} />)} />
-            <Route path='/edit/:id' component={EditTask} />
-            <Route path='/login' component={Login} />
+            <Route exact path='/' render={() => (<TasksList tasks={tasks} setTasks={setTasks} component={TasksList} />)} />
+            <Route exact path='/edit/:id' component={EditTask} />
+            <Route exact path='/login' component={Login} />
             </div>
         </Router>
       </header>

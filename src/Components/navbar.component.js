@@ -6,6 +6,7 @@ const Navbar = () => (
       <Link to='/' className='navbar-brand'>fl0h</Link>
       <div className='collapse navbar-collapse'>
           <ul className='navbar-nav mr-auto'>
+            <li><Link to='/login'>Login</Link></li>
           </ul>
       </div>
   </nav>

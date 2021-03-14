@@ -11,19 +11,20 @@ router.route('/register').post((req, res) => {
   });
 
   newUser.save()
-      .then(() => console.log(res.json('User added!')))
-      .catch(err => res.status(400).json('Error: ' + err));
+      .then(() => console.log('User added!'))
+      .catch(err => console.error(`Error: ${err}`));
 
 });
 
-router.route('/login').get((req, res) => {
+router.route('/login').post((req, res) => {
 
     User.findOne({"username": req.body.username, "password": req.body.password})
-      .then(() => {
-        if(res) {
-          console.log(res.json(`Logging in...`))
+      .then((user) => {
+        if(user) {
+          console.log(`Logging in...`, user)
         } else {
-          console.log(res.json(`Wrong username/password combination.`))
+          console.log(`Wrong username/password combination.`, user)
+          // console.log(res.status(500).send(`Wrong username/password combination.`))
         }
       })
       .catch(err => console.error(`Error: ${err}`));
@@ -40,7 +41,7 @@ router.route('/login').get((req, res) => {
 });
 
 router.route('/test').get((req, res) => {
-    res.send('The test worked.')
+    console.log(res.json('The test worked.'));
 });
 
 module.exports = router;

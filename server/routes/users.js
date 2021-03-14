@@ -19,11 +19,11 @@ router.route('/register').post((req, res) => {
 router.route('/login').get((req, res) => {
 
     User.findOne({"username": req.body.username, "password": req.body.password})
-      .then(result => {
-        if(result) {
-          res.send(`User found: ${result}.`)
+      .then(() => {
+        if(res) {
+          console.log(res.json(`Logging in...`))
         } else {
-          res.send(`Wrong username/password combination.`)
+          console.log(res.json(`Wrong username/password combination.`))
         }
       })
       .catch(err => console.error(`Error: ${err}`));

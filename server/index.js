@@ -21,9 +21,9 @@ app.use('/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("public"));
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+// });
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });

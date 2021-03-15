@@ -5,8 +5,11 @@ const Login = () => {
 
   const [usernameReg, setUsernameReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
+
   const [usernameLogin, setUsernameLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
+
+  const [loginStatus, setLoginStatus] = useState('');
 
   const handleRegister = (e) => {
 
@@ -36,9 +39,13 @@ const Login = () => {
       }
 
     axios.post('/users/login', user2)
-      .then(res => console.log(JSON.stringify(res)))
+      .then((res) => {
+          console.log(JSON.stringify(res.data))
+          setLoginStatus(res.data)
+      })
       .catch(err => {
-        console.log(err);
+        console.log(err)
+        setLoginStatus('There was an error. Please try again later.')
       });
 
     
@@ -108,6 +115,7 @@ const Login = () => {
           />
           <button type='submit' value="Login">Login</button>
           </div>
+          <h1>{loginStatus}</h1>
           </form>
       </div>
     </div>

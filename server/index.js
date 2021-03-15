@@ -3,13 +3,16 @@ var bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: []
+}));
 app.use(express.json());
 
 const tasksRouter = require('./routes/tasks');
@@ -24,9 +27,9 @@ app.use((err, req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "build"));
   res.status(404).json({
         error : {
-            message : err.message
-       }
-    });
+          message : err.message
+        }
+  });
 });
 
 app.get('/*', function(req, res) {

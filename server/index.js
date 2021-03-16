@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 require('dotenv').config();
 
@@ -10,10 +12,23 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(cors({
-  origin: []
-}));
 app.use(express.json());
+app.use(cors({
+  origin: ['http://localhost:5000/', 'https://fast-cove-93268.herokuapp.com/'],
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(session({
+  key: 'userId',
+  secret: 'StealThisSecret!',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: 60 * 60 * 24
+  }
+}));
 
 const tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);

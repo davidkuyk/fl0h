@@ -2,9 +2,6 @@ const router = require('express').Router();
 let User = require('../models/user.model');
 
 const bcrypt = require('bcrypt');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 const saltRounds = 10;
 
 router.route('/register').post((req, res) => {
@@ -26,6 +23,14 @@ router.route('/register').post((req, res) => {
   })
 });
 
+router.route('/login').get((req, res) => {
+  if (req.session.user) {
+    res.send({loggedIn: true, user: req.session.user})
+  } else {
+    res.send({loggedIn: false})
+  }
+});
+
 router.route('/login').post((req, res) => {
 
     User.findOne({"username": req.body.username})
@@ -36,6 +41,8 @@ router.route('/login').post((req, res) => {
             if (error) {console.log(error)};
 
             if (response) {
+              req.session.user = user;
+              console.log(req.session.user);
               res.send(`Logging in...`)
             } else {
               res.send(`Wrong username/password combination.`)

@@ -11,6 +11,8 @@ const Login = () => {
 
   const [loginStatus, setLoginStatus] = useState('');
 
+  axios.defaults.withCredentials = true;
+
   const handleRegister = (e) => {
 
     e.preventDefault();
@@ -47,11 +49,17 @@ const Login = () => {
         console.log(err)
         setLoginStatus('There was an error. Please try again later.')
       });
-
-    
-
       // window.location = '/';
   }
+
+  useEffect(() => {
+    axios.get('/users/login')
+      .then((response) => {
+        if (response.data.loggedIn){
+          setLoginStatus(response.data.user.username)
+        }
+      })
+  }, [])
 
   return (
     <div className='auth'>

@@ -9,7 +9,7 @@ const Login = () => {
   const [usernameLogin, setUsernameLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
 
-  const [loginStatus, setLoginStatus] = useState('');
+  const [loginStatus, setLoginStatus] = useState(false);
 
   axios.defaults.withCredentials = true;
 
@@ -42,14 +42,27 @@ const Login = () => {
 
     axios.post('/users/login', user2)
       .then((res) => {
-          console.log(JSON.stringify(res.data))
-          setLoginStatus(res.data)
+        if (!res.data.auth){
+          setLoginStatus(false);
+        } else {
+          localStorage.setItem('token', res.data.token)
+          setLoginStatus(true);
+        }
       })
       .catch(err => {
         console.log(err)
-        setLoginStatus('There was an error. Please try again later.')
+        setLoginStatus(false);
       });
       // window.location = '/';
+  }
+
+  const userAuthenticated = () => {
+    axios.get('/users/isUserAuth', {
+      headers: {
+        'x-access-token': localStorage.getItem('token')
+      }}).then((res) => {
+        console.log(res);
+      })
   }
 
   useEffect(() => {
@@ -123,7 +136,9 @@ const Login = () => {
           />
           <button type='submit' value="Login">Login</button>
           </div>
-          <h1>{loginStatus}</h1>
+          {loginStatus && (
+            <button onClick={userAuthenticated}>Check if Authenticated</button>
+          )}
           </form>
       </div>
     </div>

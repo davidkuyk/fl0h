@@ -23,12 +23,13 @@ const Login = () => {
       }
     
     axios.post('/users/register', user)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        window.location = '/';
+      })
       .catch(err => {
         console.log(err);
-      });
-
-      // window.location = '/';
+      });  
   }
 
   const handleLogin = (e) => {
@@ -47,13 +48,15 @@ const Login = () => {
         } else {
           localStorage.setItem('token', res.data.token)
           setLoginStatus(true);
+          window.location = '/';
         }
       })
       .catch(err => {
         console.log(err)
         setLoginStatus(false);
       });
-      // window.location = '/';
+
+      window.location = '/';
   }
 
   const userAuthenticated = () => {

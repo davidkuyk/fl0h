@@ -85,8 +85,4 @@ router.route('/login').post((req, res) => {
       .catch(err => console.error(`Error: ${err}`));
 });
 
-router.route('/test').get((req, res) => {
-    console.log(res.json('The test worked.'));
-});
-
 module.exports = router;

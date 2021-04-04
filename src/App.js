@@ -23,7 +23,7 @@ function App() {
         .then(() => {
           setTimeout(() => {
             setLoading(false);
-          }, 1000)   
+          }, 500)   
         })
         .catch((err) => {
           console.log(err);

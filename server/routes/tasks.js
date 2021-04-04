@@ -2,9 +2,18 @@ const router = require('express').Router();
 let Task = require('../models/task.model');
 
 router.route('/').get((req, res) => {
-    Task.find()
+    if(!req.session) {
+      console.log("This user is not authenticated.")
+      Task.find({userId: req._id})
         .then(tasks => res.json(tasks))
         .catch(err => res.status(400).json('Error: ' + err));
+    } else {
+      console.log("This user is authenticated.")
+      Task.find({userId: req._id})
+        .then(tasks => res.json(tasks))
+        .catch(err => res.status(400).json('Error: ' + err));
+    }
+    
 });
 
 router.route('/add').post((req, res) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Task from './task.component.js';
 import CreateTask from './new-create-task.component';
@@ -25,14 +25,9 @@ const TasksList = (props) => {
         return props.tasks.tasks.map(currenttask => {
           const dt2 = new Date(currenttask.date);
           const d2F = new Date(dt2.toDateString())
-          //console.log('d2F ', d2F)
           const dt1 = new Date();
-          //console.log('dt1 ', dt1)
           const d1F = new Date(dt1.toDateString())
-          //console.log('d1F ', d1F)
           let distance = Math.floor((d2F - d1F)) / (1000 * 60 * 60 * 24);
-          //console.log('Math.floor(d2F-d1F) ', Math.floor((d2F - d1F)))
-          // console.log('distance ', distance)
           if (distance == 1) { distance = '1 day until'}
           else if (distance > 1) { distance = Math.ceil(distance) + ' days until'}
           else if (distance == -1) { distance = '1 day ago'}

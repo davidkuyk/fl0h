@@ -51,6 +51,8 @@ const Login = () => {
             userId: res.data.result
           }
           localStorage.setItem('token', locStuff);
+          console.log('locStuff ', locStuff);
+          console.log('localStorage ', localStorage.getItem('token'));
           setLoginStatus(true);
           window.location = '/';
         }

@@ -39,6 +39,7 @@ const CreateTask = () => {
       e.preventDefault();
 
       const task = {
+        userId: req.userId,
         description: description,
         date: date,
         category: category

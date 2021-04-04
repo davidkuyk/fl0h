@@ -41,7 +41,7 @@ function App() {
         <Router>
           <div className='container'>
             <Navbar />
-            <Route exact path='/' render={() => (<TasksList tasks={tasks} setTasks={setTasks} component={TasksList} />)} />
+            <Route exact path='/' render={() => (<TasksList tasks={tasks} setTasks={setTasks} component={TasksList} userId={req.userId} />)} />
             <Route exact path='/edit/:id' component={EditTask} />
             <Route exact path='/login' component={Login} />
             </div>

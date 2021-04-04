@@ -46,8 +46,11 @@ const Login = () => {
         if (!res.data.auth){
           setLoginStatus(false);
         } else {
-          localStorage.setItem('token', res.data.token);
-          localStorage.setItem('userId', res.data.result);
+          let locStuff = {
+            token: res.data.token,
+            userId: res.data.result
+          }
+          localStorage.setItem('token', locStuff);
           setLoginStatus(true);
           window.location = '/';
         }
@@ -63,7 +66,7 @@ const Login = () => {
   const userAuthenticated = () => {
     axios.get('/users/isUserAuth', {
       headers: {
-        'x-access-token': localStorage.getItem('token')
+        'x-access-token': localStorage.getItem('token').token
       }}).then((res) => {
         console.log(res);
       })

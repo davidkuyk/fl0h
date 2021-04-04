@@ -4,7 +4,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const CreateTask = () => {
+const CreateTask = props => {
 
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(new Date());
@@ -39,7 +39,7 @@ const CreateTask = () => {
       e.preventDefault();
 
       const task = {
-        userId: req.userId,
+        userId: props.userId,
         description: description,
         date: date,
         category: category

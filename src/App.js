@@ -34,7 +34,12 @@ function App() {
     return (
       <Loading />
     );
-  } else {
+  } // add else if (!localStorage.getItem('token')) {
+      // return (
+        // <Login />
+      //)
+ // }
+  else {
     return (
     <div className="App">
       <header className="App-header">

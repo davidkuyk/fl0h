@@ -22,6 +22,7 @@ const TasksList = (props) => {
         }
 
     const theList = () => {
+        console.log('props', props);
         return props.tasks.tasks.map(currenttask => {
           const dt2 = new Date(currenttask.date);
           const d2F = new Date(dt2.toDateString())

@@ -54,7 +54,7 @@ const Login = () => {
           console.log('locStuff ', locStuff);
           console.log('localStorage ', localStorage.getItem('token'));
           setLoginStatus(true);
-          window.location = '/';
+          // window.location = '/';
         }
       })
       .catch(err => {

@@ -46,7 +46,8 @@ const Login = () => {
         if (!res.data.auth){
           setLoginStatus(false);
         } else {
-          localStorage.setItem('token', res.data.token)
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('userId', res.data.result);
           setLoginStatus(true);
           window.location = '/';
         }

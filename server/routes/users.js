@@ -72,7 +72,7 @@ router.route('/login').post((req, res) => {
 
               req.session.user = user;
 
-              res.json({auth: true, token: token, result: user}); // remove the user later for security reasons!
+              res.json({auth: true, token: token, result: user._id}); // remove the user later for security reasons!
               
             } else {
                 res.json({auth: false, message: 'Wrong username/password combination.'});

@@ -47,7 +47,7 @@ const TasksList = (props) => {
         
       return (
         <div className='tableWrapper'>
-          {<CreateTask userId={req.userId} />}
+          {<CreateTask userId={props.userId} />}
           <form class="newTask">
             <table className='table'>
               <thead className='thead-dark'>

@@ -49,6 +49,7 @@ const CreateTask = props => {
       axios.post('/tasks/add', task)
         .then(res => console.log(res.data))
         .catch(err => {
+          console.log('task', task);
           console.log(err);
         });
 

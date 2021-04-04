@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const CreateTask = props => {
 
+  const userId = props.userId;
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState('None');
@@ -39,7 +40,7 @@ const CreateTask = props => {
       e.preventDefault();
 
       const task = {
-        userId: props.userId,
+        userId: userId,
         description: description,
         date: date,
         category: category

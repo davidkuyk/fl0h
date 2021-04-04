@@ -46,6 +46,7 @@ const Login = () => {
         if (!res.data.auth){
           setLoginStatus(false);
         } else {
+          console.log('res.data.result', res.data.result)
           let locStuff = {
             token: res.data.token,
             userId: res.data.result

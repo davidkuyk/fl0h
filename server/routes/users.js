@@ -71,7 +71,7 @@ router.route('/login').post((req, res) => {
               });
 
               req.session.user = user;
-
+              console.log('user.js result', id);
               res.json({auth: true, token: token, result: id}); // remove the user later for security reasons!
               
             } else {
